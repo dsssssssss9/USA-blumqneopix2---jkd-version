@@ -108,6 +108,7 @@ let uartdata = ""
 let strip: neopixel.Strip = null
 let speed = 0
 let connected = false
+basic.showIcon(IconNames.Happy)
 led.enable(false)
 bluetooth.setTransmitPower(7)
 bluetooth.startUartService()
