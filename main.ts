@@ -84,24 +84,49 @@ input.onButtonPressed(Button.A, function () {
 })
 function doMotors () {
     if (uartdata == "A") {
-        maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, speed)
-        maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, speed)
+        SuperBit.MotorRunDual(
+        SuperBit.enMotors.M1,
+        speed,
+        SuperBit.enMotors.M3,
+        speed
+        )
     } else if (uartdata == "B") {
-        maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CCW, speed)
+        SuperBit.MotorRunDual(
+        SuperBit.enMotors.M1,
+        -1 * speed,
+        SuperBit.enMotors.M3,
+        -1 * speed
+        )
     } else if (uartdata == "C") {
-        maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, speed)
-        maqueen.motorStop(maqueen.Motors.M1)
+        SuperBit.MotorRunDual(
+        SuperBit.enMotors.M1,
+        speed,
+        SuperBit.enMotors.M3,
+        0
+        )
     } else if (uartdata == "D") {
-        maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, speed)
-        maqueen.motorStop(maqueen.Motors.M2)
+        SuperBit.MotorRunDual(
+        SuperBit.enMotors.M1,
+        0,
+        SuperBit.enMotors.M3,
+        speed
+        )
     } else if (uartdata == "E") {
-        maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, speed)
-        maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, speed)
+        SuperBit.MotorRunDual(
+        SuperBit.enMotors.M1,
+        speed,
+        SuperBit.enMotors.M3,
+        -1 * speed
+        )
     } else if (uartdata == "F") {
-        maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, speed)
-        maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, speed)
+        SuperBit.MotorRunDual(
+        SuperBit.enMotors.M1,
+        -1 * speed,
+        SuperBit.enMotors.M3,
+        speed
+        )
     } else if (uartdata == "0") {
-        maqueen.motorStop(maqueen.Motors.All)
+        SuperBit.MotorStopAll()
     }
 }
 let uartdata = ""
